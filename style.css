@@ -5,4 +5,49 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Bungee Spice', cursive;
+  text-align: center;
+  margin-top: 0.5rem;
 }
+
+body{
+  background-color: #96CEB4;
+}
+
+h1{
+  font-size: 3rem;
+}
+
+button{
+  border: none;
+  width: 4rem;
+  height: 1.5rem;
+  position: absolute;
+  margin-top: 3rem;
+}
+
+button:hover{
+  transition: 0.8s;
+  background-color: #CFD2CF;
+}
+
+#board{
+  position:absolute;
+  left: 50%;
+  transform: translate(-50%);
+  width: 35rem;
+  height: 26rem;
+  top: 6rem;
+  background: #5D13E7;
+  border: 2px solid black;
+  box-shadow: .2rem 1rem #192965;
+}
+
+#board table tr td{
+  width: 90px;
+  height: 4rem;
+  border: 2px solid black;
+  border-radius: 50%;
+  background-color: #fff;
+  cursor: pointer;
+}
+
