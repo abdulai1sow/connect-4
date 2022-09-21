@@ -1,4 +1,3 @@
-// document.addEventListener('DOMContentLoaded', () => {
   let squares = document.querySelectorAll('.grid div')
   let result = document.querySelector('#result')
   let displayCurrentPlayer = document.querySelector('#current-player')
@@ -96,11 +95,7 @@
         console.log('made it');
         
       }
-      //if result.innerHTML = 'player one wins' than the board is freez
-      // if (result.innerHTML === 'Player One Wins!') {
-      //   result.innerHTML = false
-      //   document.getElementById("yourButtonId").removeEventListener("Click", yourFunctinoNameHere);
-      // }
+   
       //check those squares to see if they all have the class of player-two
       if (
         square1.classList.contains('player-two') &&
@@ -143,7 +138,6 @@ console.dir(squares)
       checkBoard()
     }
   }
-// })
 
 
 //reset button
