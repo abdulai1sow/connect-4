@@ -1,22 +1,55 @@
+body{
+  text-align: center;
+}
+
 .grid {
   border: 1px solid;
-  height: 120px;
-  width: 140px;
+  height: 600px;
+  width: 700px;
   display: flex;
   flex-wrap: wrap;
+  background-color: #16213E;
+  margin-left: 6rem;
+  margin-bottom: 2rem;
 }
 
 .grid div {
-  height: 20px;
-  width: 20px;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  cursor: pointer;
+  /* background-color: black; */
+}
+
+.grid div:hover{
+  background-color: #F9F9F9;
+  transition: .3s;
+
 }
 
 .player-one {
-  background-color: red;
+  background-color: #FA9494;
   border-radius: 10px;
 }
 
 .player-two {
-  background-color: blue;
+  background-color: #FFEEAF;
   border-radius: 10px;
+}
+
+button{
+  border: none;
+  width: 4rem;
+  height: 2rem;
+  background-color: #EB1D36;
+  cursor: pointer;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+  color: #16213E;
+  transition: .3s;
+}
+
+button:hover{
+  background-color: #FA9494;
+  color: #CFD2CF;
 }

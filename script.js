@@ -1,9 +1,9 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const squares = document.querySelectorAll('.grid div')
-  const result = document.querySelector('#result')
-  const displayCurrentPlayer = document.querySelector('#current-player')
+// document.addEventListener('DOMContentLoaded', () => {
+  let squares = document.querySelectorAll('.grid div')
+  let result = document.querySelector('#result')
+  let displayCurrentPlayer = document.querySelector('#current-player')
   let currentPlayer = 1
-
+  let playerOne = document.querySelector('.player-one')
   const winningArrays = [
     [0, 1, 2, 3],
     [41, 40, 39, 38],
@@ -91,7 +91,16 @@ document.addEventListener('DOMContentLoaded', () => {
         square4.classList.contains('player-one')
       ) {
         result.innerHTML = 'Player One Wins!'
+        squares.style.backgroundColor = 'purple'
+        console.dir(squares)
+        console.log('made it');
+        
       }
+      //if result.innerHTML = 'player one wins' than the board is freez
+      // if (result.innerHTML === 'Player One Wins!') {
+      //   result.innerHTML = false
+      //   document.getElementById("yourButtonId").removeEventListener("Click", yourFunctinoNameHere);
+      // }
       //check those squares to see if they all have the class of player-two
       if (
         square1.classList.contains('player-two') &&
@@ -100,9 +109,13 @@ document.addEventListener('DOMContentLoaded', () => {
         square4.classList.contains('player-two')
       ) {
         result.innerHTML = 'Player Two Wins!'
+        stopPropagation()
+        // document.querySelector(".grid div").onclick = '';
+        console.log('player two');
       }
     }
   }
+console.dir(squares)
 
   for (let i = 0; i < squares.length; i++) {
     squares[i].onclick = () => {
@@ -118,16 +131,24 @@ document.addEventListener('DOMContentLoaded', () => {
           squares[i].classList.add('player-two')
           currentPlayer = 1
           displayCurrentPlayer.innerHTML = currentPlayer
+        } else if (result.innerHTML == 'Player One Wins!') {
+          stopPropagation( 
+            squares[i].classList.add('player-two')
+
+          )
+          // squares[i].classList.style.backgroundColor('purple')
+
         }
       } else alert('cant go here')
       checkBoard()
     }
   }
-})
+// })
 
+
+//reset button
 const resetBtn = document.querySelector('#restart')
 const newGame = () => {
-  result = ''
+  location.reload()
 }
-
-newGame.addEventListener('click',resetBtn)
+resetBtn.addEventListener('click',newGame)
