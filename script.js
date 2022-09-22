@@ -1,9 +1,10 @@
-  let squares = document.querySelectorAll('.grid div')
-  let result = document.querySelector('#result')
-  let displayCurrentPlayer = document.querySelector('#current-player')
+  let circles = document.querySelectorAll('.grid div')
+  let winState = document.querySelector('#result')
+  let displayPlayer = document.querySelector('#current-player')
   let currentPlayer = 1
-  let playerOne = document.querySelector('.player-one')
-  const winningArrays = [
+  // let playerOne = document.querySelector('.player-one')
+  //winning combonations/array
+  const array = [
     [0, 1, 2, 3],
     [41, 40, 39, 38],
     [7, 8, 9, 10],
@@ -76,69 +77,68 @@
   ]
 
   function checkBoard() {
-    for (let y = 0; y < winningArrays.length; y++) {
-      const square1 = squares[winningArrays[y][0]]
-      const square2 = squares[winningArrays[y][1]]
-      const square3 = squares[winningArrays[y][2]]
-      const square4 = squares[winningArrays[y][3]]
+    for (let y = 0; y < array.length; y++) {
+      const circle1 = circles[array[y][0]]
+      const circle2 = circles[array[y][1]]
+      const circle3 = circles[array[y][2]]
+      const circle4 = circles[array[y][3]]
 
-      //check those squares to see if they all have the class of player-one
+      //check those circles to see if they all have the class of player-one
       if (
-        square1.classList.contains('player-one') &&
-        square2.classList.contains('player-one') &&
-        square3.classList.contains('player-one') &&
-        square4.classList.contains('player-one')
+        circle1.classList.contains('player-one') &&
+        circle2.classList.contains('player-one') &&
+        circle3.classList.contains('player-one') &&
+        circle4.classList.contains('player-one')
       ) {
-        result.innerHTML = 'Player One Wins!'
-        squares.style.backgroundColor = 'purple'
-        console.dir(squares)
-        console.log('made it');
+        winState.innerHTML = 'Player One Wins!'
+        // circles.style.backgroundColor = 'purple'
+        // console.dir(circles)
+        // console.log('made it');
         
       }
    
-      //check those squares to see if they all have the class of player-two
+      //check those circles to see if they all have the class of player-two
       if (
-        square1.classList.contains('player-two') &&
-        square2.classList.contains('player-two') &&
-        square3.classList.contains('player-two') &&
-        square4.classList.contains('player-two')
+        circle1.classList.contains('player-two') &&
+        circle2.classList.contains('player-two') &&
+        circle3.classList.contains('player-two') &&
+        circle4.classList.contains('player-two')
       ) {
-        result.innerHTML = 'Player Two Wins!'
+        winState.innerHTML = 'Player Two Wins!'
         stopPropagation()
         // document.querySelector(".grid div").onclick = '';
         console.log('player two');
       }
     }
   }
-console.dir(squares)
+console.dir(circles)
 
-  for (let i = 0; i < squares.length; i++) {
-    squares[i].onclick = () => {
-      //if the square below your current square is taken, you can go ontop of it
-      if (squares[i + 7].classList.contains('taken') && !squares[i].classList.contains('taken')) {
+  for (let i = 0; i < circles.length; i++) {
+    circles[i].onclick = () => {
+      //if the circle below your current circle is taken, you can go ontop of it
+      if (circles[i + 7].classList.contains('chip') && !circles[i].classList.contains('chip')) {
         if (currentPlayer == 1) {
-          squares[i].classList.add('taken')
-          squares[i].classList.add('player-one')
+          circles[i].classList.add('chip')
+          circles[i].classList.add('player-one')
           currentPlayer = 2
-          displayCurrentPlayer.innerHTML = currentPlayer
+          displayPlayer.innerHTML = currentPlayer
         } else if (currentPlayer == 2) {
-          squares[i].classList.add('taken')
-          squares[i].classList.add('player-two')
+          circles[i].classList.add('chip')
+          circles[i].classList.add('player-two')
           currentPlayer = 1
-          displayCurrentPlayer.innerHTML = currentPlayer
-        } else if (result.innerHTML == 'Player One Wins!') {
+          displayPlayer.innerHTML = currentPlayer
+        } else if (winState.innerHTML == 'Player One Wins!') {
           stopPropagation( 
-            squares[i].classList.add('player-two')
+            circles[i].classList.add('player-two')
 
           )
-          // squares[i].classList.style.backgroundColor('purple')
+          // circles[i].classList.style.backgroundColor('purple')
 
         }
       } else alert('cant go here')
       checkBoard()
     }
   }
-
 
 //reset button
 const resetBtn = document.querySelector('#restart')

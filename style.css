@@ -21,11 +21,12 @@ body{
   width: 100px;
   border-radius: 50%;
   cursor: pointer;
+  /* background-color: #fff; */
   /* background-color: black; */
 }
 
 .grid div:hover{
-  background-color: #F9F9F9;
+  background-color: #D8D8D8;
   transition: .3s;
 
 }
