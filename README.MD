@@ -1,6 +1,9 @@
 # Project 1
 CONNECT FOUR
 
+### Site
+https://abdulai1sow.github.io/connect-4/
+
 ## Discriptoin
 about
 Players must connect 4 of the same colored discs in a row to win.

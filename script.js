@@ -94,7 +94,6 @@
         // circles.style.backgroundColor = 'purple'
         // console.dir(circles)
         // console.log('made it');
-        
       }
    
       //check those circles to see if they all have the class of player-two
@@ -130,15 +129,15 @@ console.dir(circles)
         } else if (winState.innerHTML == 'Player One Wins!') {
           stopPropagation( 
             circles[i].classList.add('player-two')
-
           )
-          // circles[i].classList.style.backgroundColor('purple')
 
+          // circles[i].classList.style.backgroundColor('purple')
         }
       } else alert('cant go here')
       checkBoard()
     }
   }
+
 
 //reset button
 const resetBtn = document.querySelector('#restart')
